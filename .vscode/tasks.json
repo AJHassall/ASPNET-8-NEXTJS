@@ -36,6 +36,25 @@
                 "${workspaceFolder}/api/MyApp.sln"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "npm build:local",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "build:local"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/ui" // Change working directory
+            }
+        },
+        {
+            "label": "prelaunch-build",  // compound task
+            "dependsOn": [
+                "npm build:local",
+                "build" 
+            ]
         }
     ]
 }
